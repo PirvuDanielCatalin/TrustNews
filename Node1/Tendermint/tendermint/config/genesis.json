@@ -1,6 +1,6 @@
 {
-  "genesis_time": "2021-07-30T14:44:19.2763168Z",
-  "chain_id": "test-chain-OsHRSB",
+  "genesis_time": "2021-07-30T15:05:10.3857004Z",
+  "chain_id": "test-chain-AWWowV",
   "consensus_params": {
     "block_size_params": {
       "max_bytes": "22020096",
@@ -22,7 +22,7 @@
     {
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "kSMYGlaCtAzPjygvmcmrsJVVKjGLddQDeI1Cp+aYXZ0="
+        "value": "PPDgrpKxCzzGGNkgm3bkywpD6NJW1lAYBcVU2rzcNzk="
       },
       "power": "10",
       "name": ""
