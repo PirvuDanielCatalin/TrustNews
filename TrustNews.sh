@@ -8,7 +8,8 @@
 # Node 4    || 9987             || 9988                 || 27017    || 26657
 #############################################################################################
 action=$1
-script_path=$(dirname $(realpath $0))
+script_path="D:/Facultate/VMs/.SharedFolder/TrustNews"
+# script_path=$(dirname $(realpath $0))
 
 case "$action" in
     "create")
@@ -103,6 +104,10 @@ case "$action" in
         rm -rf ${script_path}/Node3/Tendermint
         rm -rf ${script_path}/Node4/MongoDB
         rm -rf ${script_path}/Node4/Tendermint
+        docker rm -v bigchaindbnode1
+        docker rm -v bigchaindbnode2
+        docker rm -v bigchaindbnode3
+        docker rm -v bigchaindbnode4
         ;;
     *)
         echo "Action is not registered"

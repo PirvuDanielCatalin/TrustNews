@@ -8,7 +8,7 @@
 proxy_app = "tcp://127.0.0.1:26658"
 
 # A custom human readable name for this node
-moniker = "Node4"
+moniker = "49d1dfac6aaa"
 
 # If this node is many blocks behind the tip of the chain, FastSync
 # allows them to catchup quickly by downloading blocks in parallel
@@ -90,7 +90,7 @@ external_address = ""
 seeds = ""
 
 # Comma separated list of nodes to keep persistent connections to
-persistent_peers = "eb62a453777b40d2ab4c91df6bcc39a5b0254111@4e8b30adc196:26656,0d60a5eceaba17d70efb88f1662db09f60628c9c@42cfc952ea7f:26656,1882061c12c6fe101a50de7657c155bda407706b@d07a0d00f36a:26656,de768a175d04288e441319a4e60794546eb849ba@fb6b4004a9a3:26656"
+persistent_peers = ""
 
 # UPNP port forwarding
 upnp = false
@@ -131,7 +131,7 @@ private_peer_ids = ""
 ##### mempool configuration options #####
 [mempool]
 
-recheck = false
+recheck = true
 recheck_empty = true
 broadcast = true
 wal_dir = "data/mempool.wal"
@@ -160,7 +160,7 @@ timeout_commit = 1000
 skip_timeout_commit = false
 
 # EmptyBlocks mode and possible interval between empty blocks in seconds
-create_empty_blocks = false
+create_empty_blocks = true
 create_empty_blocks_interval = 0
 
 # Reactor sleep duration parameters are in milliseconds

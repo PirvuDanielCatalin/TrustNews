@@ -1,6 +1,6 @@
 {
-  "genesis_time": "2021-07-30T09:40:29.8411854Z",
-  "chain_id": "test-chain-FFHp0k",
+  "genesis_time": "2021-07-30T14:44:19.2763168Z",
+  "chain_id": "test-chain-OsHRSB",
   "consensus_params": {
     "block_size_params": {
       "max_bytes": "22020096",
@@ -22,34 +22,10 @@
     {
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "9s32LjsuC6g3p7oh558HAfwNWyUnyXGIX0jr/xPV4Zc="
+        "value": "kSMYGlaCtAzPjygvmcmrsJVVKjGLddQDeI1Cp+aYXZ0="
       },
       "power": "10",
-      "name": "Node1"
-    },
-    {
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "Uv9sPqYtqrwkyl6XtP8o5YCy0ByB6CWT8m4Ve6/TXjQ="
-      },
-      "power": "10",
-      "name": "Node2"
-    },
-    {
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "HoakTFulfTfV27hEJNewoxHpcVTcrT51AUekosLoYlw="
-      },
-      "power": "10",
-      "name": "Node3"
-    },
-    {
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "9qVp9F8brV1ZzYFzvHqAv4pivlVDDaogXsaAgzblLPA="
-      },
-      "power": "10",
-      "name": "Node4"
+      "name": ""
     }
   ],
   "app_hash": ""
