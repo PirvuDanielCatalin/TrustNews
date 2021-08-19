@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    {
+      "name": "chosen_site_prime_nr",
+      "public": false,
+      "type": "u32"
+    },
+    {
+      "name": "product_of_primes",
+      "public": true,
+      "type": "u32"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "bool"
+    }
+  ]
+}

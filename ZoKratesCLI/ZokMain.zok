@@ -1,0 +1,2 @@
+def main(private u32 chosen_site_prime_nr, u32 product_of_primes) -> bool:
+    return product_of_primes % chosen_site_prime_nr == 0

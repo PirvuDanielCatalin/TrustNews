@@ -8,7 +8,7 @@
 # Node 4    || 9987             || 9988                 || 27017    || 26657
 #############################################################################################
 action=$1
-script_path="D:/Facultate/VMs/.SharedFolder/TrustNews"
+# script_path="D:/Facultate/VMs/.SharedFolder/TrustNews"
 # script_path=$(dirname $(realpath $0))
 
 case "$action" in

@@ -1,0 +1,54 @@
+{
+  "genesis_time": "2021-08-17T15:53:12.851127199Z",
+  "chain_id": "test-chain-XAm915",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age": "100000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    }
+  },
+  "validators": [
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "JsuBdhlWp7j0A5cMFmD1gMptsKmMYb2osUjju6VPJSY="
+      },
+      "power": "10",
+      "name": "tendermint1"
+    },
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "Z1pc3oz0P+j4Fxgg6tA0K2uVAM4JsDMynTpVhRsYeXw="
+      },
+      "power": "10",
+      "name": "tendermint2"
+    },
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "GfwGJUacx34nvL2sipjXkU/PceQ5pSzo1wOBZVhUO3U="
+      },
+      "power": "10",
+      "name": "tendermint3"
+    },
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "97KmZx3icAU38WXhyHUN3/Epu8IpuZNpDl0HwX9Au04="
+      },
+      "power": "10",
+      "name": "tendermint4"
+    }
+  ],
+  "app_hash": ""
+}

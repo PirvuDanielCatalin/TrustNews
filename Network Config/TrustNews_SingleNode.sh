@@ -5,7 +5,9 @@
 # Node 1    || 9981             || 9982                 || 27011    || 26651
 #############################################################################################
 action=$1
-script_path="D:/Facultate/VMs/.SharedFolder/TrustNews/BigchainDB"
+# script_path="D:/Facultate/VMs/.SharedFolder/TrustNews"
+# script_path=$(dirname $(realpath $0))
+script_path="/home/danielpirvu/Workdir/TrustNews/BigchainDBSingleNode"
 
 case "$action" in
     "create")
@@ -13,10 +15,10 @@ case "$action" in
         docker run \
         --detach \
         --name bigchaindbnode1 \
-        --publish 9981:9984 \
-        --publish 9982:9985 \
-        --publish 27011:27017 \
-        --publish 26651:26657 \
+        --publish 39984:9984 \
+        --publish 39985:9985 \
+        --publish 39017:27017 \
+        --publish 39657:26657 \
         --volume ${script_path}/MongoDB/data/db:/data/db \
         --volume ${script_path}/MongoDB/data/configdb:/data/configdb \
         --volume ${script_path}/Tendermint/tendermint:/tendermint \
