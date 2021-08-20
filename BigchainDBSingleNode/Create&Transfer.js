@@ -41,21 +41,17 @@ async function CreateNews(
     current_owner_private_key
   );
 
-  // console.log();
-  // console.log(util.inspect(tx_signed, false, null, true));
-  // console.log();
-
   let commit = await BigchainDB_Connection.postTransactionCommit(
     tx_signed
   ).then((tx_received) => {
     console.log(
-      "> ######################################################################"
+      "> ##########################################################################################################"
     );
     console.log(
       "> CREATE Transaction " + tx_received.id + " successfully posted."
     );
     console.log(
-      "> ######################################################################"
+      "> ##########################################################################################################"
     );
   });
 
@@ -85,21 +81,17 @@ async function TransferNews(
     current_owner_private_key
   );
 
-  // console.log();
-  // console.log(util.inspect(tx_signed, false, null, true));
-  // console.log();
-
   let commit = await BigchainDB_Connection.postTransactionCommit(
     tx_signed
   ).then((tx_received) => {
     console.log(
-      "> ######################################################################"
+      "> ##########################################################################################################"
     );
     console.log(
       "> TRANSFER Transaction " + tx_received.id + " successfully posted."
     );
     console.log(
-      "> ######################################################################"
+      "> ##########################################################################################################"
     );
   });
 

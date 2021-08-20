@@ -8,11 +8,11 @@ function sleep(milliseconds) {
 }
 
 function execute(command) {
-  const exec = require('child_process').exec
+  const exec = require("child_process").exec;
 
   var output = exec(command, (err, stdout, stderr) => {
     process.stdout.write(stdout);
-  })
+  });
 
   console.log(output);
 }
