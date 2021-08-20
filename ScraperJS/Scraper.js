@@ -56,7 +56,6 @@ async function ScrapeBBC() {
         });
     });
 
-  // console.log("Rapid")
   return [title, content];
 }
 
