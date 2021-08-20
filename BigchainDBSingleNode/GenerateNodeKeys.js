@@ -11,7 +11,7 @@ const BigchainDB_Connection = new driver.Connection(BigchainDB_API_Endpoint);
 // Initial key generation
 const extractor_keys = new driver.Ed25519Keypair();
 
-fs.writeFile(
+fs.writeFileSync(
   "./BigchainDBSingleNode/Keys/node1_keys.json",
   JSON.stringify(extractor_keys),
   function (err) {

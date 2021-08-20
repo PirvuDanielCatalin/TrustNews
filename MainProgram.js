@@ -1,5 +1,6 @@
 const fs = require("fs");
 const util = require("util");
+const prompt = require("prompt-sync")();
 
 const bigchaindb_utils = require("./BigchainDBSingleNode/Create&Transfer.js");
 const bigchaindb_check = require("./BigchainDBSingleNode/CheckTransaction.js");
@@ -16,7 +17,7 @@ var news_platforms = [
   { name: "World Health Organization", prime_nr: "17" },
 ];
 
-async function Main() {
+async function Extract() {
   // Choose news platform
   product_of_prime_nrs = 1;
   news_platforms.map((elem) => {
@@ -91,5 +92,22 @@ async function Main() {
   utilities.sleep(5000);
 }
 
-// Calls
+function Main() {
+  five_minutes_time_interval = 5 * 60 * 1000;
+  thirty_seconds_time_interval = 30 * 1000;
+
+  var menu_text =
+    "\n> The extractor has started\n" +
+    "\n> Every 5 minutes a new transaction will be made on blockchain\n" +
+    "\n> To stop the program press Ctrl + C\n";
+
+  console.log(menu_text);
+
+  var interval = setInterval(function () {
+    Extract();
+  }, thirty_seconds_time_interval);
+
+  return 0;
+}
+
 Main();

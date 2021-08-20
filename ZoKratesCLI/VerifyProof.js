@@ -5,7 +5,7 @@ const util = require("util");
 const fs = require("fs");
 
 function VerifyProof(proof) {
-  fs.writeFile(
+  fs.writeFileSync(
     "./ZoKratesCLI/GeneratedInfo/proof_verified.json",
     JSON.stringify(proof),
     function (err) {
