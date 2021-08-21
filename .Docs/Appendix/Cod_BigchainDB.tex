@@ -1,0 +1,154 @@
+\section{GenerateNodeKeys}
+\begin{verbatim}
+const driver = require("bigchaindb-driver");
+const base58 = require("bs58");
+const crypto = require("crypto");
+const util = require("util");
+const { Ed25519Sha256 } = require("crypto-conditions");
+const fs = require("fs");
+
+const BigchainDB_API_Endpoint = "http://localhost:39984/api/v1/";
+const BigchainDB_Connection = new driver.Connection(BigchainDB_API_Endpoint);
+
+// Initial key generation
+const extractor_keys = new driver.Ed25519Keypair();
+
+fs.writeFileSync(
+  "./BigchainDBSingleNode/Keys/node_keys.json",
+  JSON.stringify(extractor_keys),
+  function (err) {
+    if (err) {
+      console.log(err);
+    }
+  }
+);
+\end{verbatim}
+
+\section{Create&Transfer}
+\begin{verbatim}
+const driver = require("bigchaindb-driver");
+const base58 = require("bs58");
+const crypto = require("crypto");
+const { Ed25519Sha256 } = require("crypto-conditions");
+
+const util = require("util");
+
+const BigchainDB_API_Endpoint = "http://localhost:39984/api/v1/";
+const BigchainDB_Connection = new driver.Connection(BigchainDB_API_Endpoint);
+
+async function CreateNews(
+  title,
+  content_of_news,
+  proof,
+  current_owner_public_key,
+  current_owner_private_key
+) {
+  var asset = {
+    title: title,
+    content: content_of_news,
+    proof: proof,
+    datetime: new Date().toString(),
+  };
+  var metadata = null;
+  var outputs = [
+    driver.Transaction.makeOutput(
+      driver.Transaction.makeEd25519Condition(current_owner_public_key)
+    ),
+  ];
+  var issuers = current_owner_public_key;
+
+  var tx = driver.Transaction.makeCreateTransaction(
+    asset,
+    metadata,
+    outputs,
+    issuers
+  );
+
+  var tx_signed = driver.Transaction.signTransaction(
+    tx,
+    current_owner_private_key
+  );
+
+  let commit = await BigchainDB_Connection.postTransactionCommit(
+    tx_signed
+  ).then((tx_received) => {
+    console.log(
+      "> ##########################################################################################################"
+    );
+    console.log(
+      "> CREATE Transaction " + tx_received.id + " successfully posted."
+    );
+    console.log(
+      "> ##########################################################################################################"
+    );
+  });
+
+  return tx_signed;
+}
+
+async function TransferNews(
+  inputs,
+  new_owner_public_key,
+  current_owner_private_key
+) {
+  var metadata = null;
+  var outputs = [
+    driver.Transaction.makeOutput(
+      driver.Transaction.makeEd25519Condition(new_owner_public_key)
+    ),
+  ];
+
+  var tx = driver.Transaction.makeTransferTransaction(
+    inputs,
+    outputs,
+    metadata
+  );
+
+  var tx_signed = driver.Transaction.signTransaction(
+    tx,
+    current_owner_private_key
+  );
+
+  let commit = await BigchainDB_Connection.postTransactionCommit(
+    tx_signed
+  ).then((tx_received) => {
+    console.log(
+      "> ##########################################################################################################"
+    );
+    console.log(
+      "> TRANSFER Transaction " + tx_received.id + " successfully posted."
+    );
+    console.log(
+      "> ##########################################################################################################"
+    );
+  });
+
+  return tx_signed.id;
+}
+
+module.exports = { CreateNews, TransferNews };
+\end{verbatim}
+
+\section{CheckTransaction}
+\begin{verbatim}
+const axios = require("axios");
+const util = require("util");
+
+const BigchainDB_API_Endpoint = "http://localhost:39984";
+
+async function CheckTransaction(transaction_id) {
+  let check_request = await axios
+    .get(BigchainDB_API_Endpoint + "/api/v1/transactions/" + transaction_id)
+    .then((response) => {
+      console.log(
+        "> ##########################################################################################################"
+      );
+      console.log(util.inspect(response.data, false, null, true));
+      console.log(
+        "> ##########################################################################################################"
+      );
+    });
+}
+
+module.exports = { CheckTransaction };
+\end{verbatim}
