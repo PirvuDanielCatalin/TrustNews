@@ -5,14 +5,14 @@ const util = require("util");
 const { Ed25519Sha256 } = require("crypto-conditions");
 const fs = require("fs");
 
-const BigchainDB_API_Endpoint = "http://localhost:49184/api/v1/";
+const BigchainDB_API_Endpoint = "http://localhost:39984/api/v1/";
 const BigchainDB_Connection = new driver.Connection(BigchainDB_API_Endpoint);
 
 // Initial key generation
 const extractor_keys = new driver.Ed25519Keypair();
 
 fs.writeFileSync(
-  "./BigchainDBSingleNode/Keys/node1_keys.json",
+  "./BigchainDBSingleNode/Keys/node_keys.json",
   JSON.stringify(extractor_keys),
   function (err) {
     if (err) {

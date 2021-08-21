@@ -89,7 +89,7 @@ async function Extract() {
     create_transaction.id
   );
 
-  utilities.sleep(5000);
+  // utilities.sleep(5000);
 }
 
 function Main() {
