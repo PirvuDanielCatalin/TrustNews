@@ -117,9 +117,11 @@ Pentru testare am folosit un sistem de operare Ubuntu 18.04 având instalate Doc
 
 \begin{figure}[H] 
 \centering
-\includegraphics[scale=0.5]{Images/SCR3.png}
+\includegraphics[scale=0.6]{Images/SCR3.png}
 \caption{Output după procesarea tranzacției}
 \end{figure} 
+
+\clearpage
 
 Procesul de dovedire se folosește de convenția stabilită că fiecare platformă de știri are asociat numărul prim. Website-ul BBC.com are asociat numărul 5 iar produsul calculat pe baza tuturor asocierilor este 19635 = 3 * 5 * 7 * 11 * 17. În dovadă se văd doar constantele folosite pentru a arata că se cunosc polinoamele implicate în QAP de către doveditor datorită valorii witness. Valorile de input publice vor fi de asemenea regăsite în dovadă. În cazul acesta, valoarea 0x4cb3, reprezentând produsul total în valoare hexazecimală, este prezentă.\\
 
@@ -133,11 +135,15 @@ Procesul de dovedire se folosește de convenția stabilită că fiecare platform
 
 \section{Planuri de îmbunătățire}
 
-În final, fiecare nod va ajunge să conțină o cantitate mare de știri preluate din foarte multe surse diferite. O primă îmbunătățire ar putea consta în expunerea știrilor pe o platforma nouă administrată tot în cadrul rețelei blockchain. Practic un nod va juca și rolul de server web care va primi request-urile din afara rețelei.\\
+În final, fiecare nod va ajunge să conțină o cantitate mare de știri preluate din foarte multe surse diferite. O primă îmbunătățire ar putea consta în expunerea știrilor pe o platforma nouă administrată tot în cadrul rețelei blockchain. Practic un nod va juca și rolul de server web unde vor putea fi citite știrile.\\
 
 În continuarea acestei idei fiecare nod extractor va putea tranfera știrea creată către nodul ales pentru a fi server web. Acesta din urmă va putea interoga ușor toate output-urile din toate tranzacțiile ce au cheia lui publică specificată. Astfel va putea obține id-urile tranzacțiilor și poate ajunge la conținutul știrii din interior.\\
 
 Aplicația am văzut că tratează cazul în care nodurile pot fi deținute de oricine primește acces în rețeaua privată. Odată ce un nod este prezent el poate să extragă informații de pe platforme deja existente și unde publicarea se face de către persoane autorizate. Pentru a îmbunătăți performanță aplicației se poate implementa o formă simplificată de nod care va fi deținută de trusturile de media care ar putea salva direct în blockchain conținutul nou.\\
+
+Fiecare trust va fi restricționat să dețină un singur nod cu care va putea adăuga conținut. În continuare ar putea fi implementat un sistem de votare prin care celelalte trusturi și-ar putea exprima opinia despre câtă încredere le acordă. Fiecare știre va avea astfel un rating asociat și fiecare cititor va putea interpreta pe baza lui dacă o știre este falsă.\\
+
+Mulțimea mare de surse poate ridica problema drepturilor de autor. Trebuie astfel să fie structurat un plan prin care fiecărui trust îi este comunicată activitatea aplicației. Discutând cu trusturile de publicitate, aplicația poate evolua spre una din ideile menționate anterior sau poate extrage altele noi.\\
 
 Mai rămâne în picioare problema știrilor duplicat. Fiecare nod va trebui să mențină o proprie listă a știrilor pe care deja le-a extras cât și o listă cu știri pe care alte noduri le-au procesat. Acest din urmă aspect este greu de realizat deoarece nodurile funcționează în paralel și nu comunica decât în momentul în care au creat deja tranzacțiile. Comparând două tranzacții cu același text al știrii vom vedea că sunt multe elemente ce le disting precum cheile criptografice, momentul de timp și chiar și dovezile.\\
 

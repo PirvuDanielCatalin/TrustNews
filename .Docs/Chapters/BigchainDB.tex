@@ -2,7 +2,7 @@
 
 BigchainDB este tehnologia folosită pentru a răspunde nevoilor date de aplicația TrustNews, reușind să facă trecerea ușoară către noile moduri de procesare și stocare a datelor.\\
 
-Tehnologia, ajunsă acum la versiunea 2.0, combină proprietățile blockchain (descentralizare, imutabilitate și management propriu asupra datelor deținute) cu cele ale bazelor de date (rată de tranzacționare mare, timp de răspuns mic și posibilitate de a interoga eficient conținutul). \cite{BigchainDB_Art}\\
+Tehnologia, ajunsă acum la versiunea 2.0, combină proprietățile blockchain (descentralizare, imutabilitate și management propriu asupra datelor deținute) cu cele ale bazelor de date (rată de tranzacționare mare, timp de răspuns mic și posibilitate de a interoga eficient conținutul) \cite{BigchainDB_Art}.\\
 
 \begin{figure}[H] 
 \centering
@@ -24,17 +24,17 @@ Nodurile sunt compuse din 3 elemente: nucleul Tendermint, server-ul BigchainDB �
 
 Tendermint \cite{Tendermint} este tehnologia de bază peste care se lucrează și care aduce elementele ce țin de rețea și de algorimul de consens. Mai exact Tendermint Core este componenta ce permite trimiterea de mesaje în rețea folosind protocoale specifice iar algormitmul de consens este Byzantine Fault Tolerant. Consensul se stabilește pe baza mai multor runde de votare la care participă toate nodurile și în care se decide ce block va fi publicat. Un block este valid dacă pentru fiecare rundă cel puțin două treimi din noduri au votat în favoarea lui.\\
 
-Informația va fi stocată în final în bazele de date de pe fiecare nod. Natura descentralizată oprește atacatorii care ar vrea să corupă sau să șteargă datele. Ei ar putea să obțină privileglii crescute pe anumite noduri însă asta le va permite manipularea datelor doar de pe acele noduri. Încercarea de a acționa rău voit în procesul de votare poate fi nesemnificativ dacă numărul de noduri este unul foarte mare (implicit pragul de două treimi este mare).\\
+Informația va fi stocată în final în bazele de date de pe fiecare nod. Natura descentralizată oprește atacatorii care ar vrea să corupă sau să șteargă datele. Ei ar putea să obțină privileglii crescute pe anumite noduri însă asta le va permite manipularea datelor doar de pe acele noduri. Încercarea de a acționa rău voit în procesul de votare poate fi nesemnificativă dacă numărul de noduri este unul foarte mare (implicit pragul de două treimi este mare).\\
 
-De menționat este faptul că BigchainDB este deseori într-un context de blockchain cu permisiune. Astfel accesul în rețeaua dezvoltată pentru o anumită aplicație este dat de o autoritate care poate monitoriza acțiunile fiecărui membru și poate lua decizii în consecință.\\
+De menționat este faptul că BigchainDB este folosit de obicei într-un context de blockchain cu permisiune. Astfel accesul în rețeaua dezvoltată pentru o anumită aplicație este dat de o autoritate care poate monitoriza acțiunile fiecărui membru și poate lua decizii în consecință.\\
 
 Imposibilitatea de a șterge datele odată salvate în blockchain este realizată practic în software prin lipsa unui serviciu explicit care să permită acest lucru. În plus descentralizarea amintită anterior implică și salvarea în fiecare nod a conținutului din blockchain. Astfel dacă de pe un anumit nod se șterg date, celelalte noduri nu vor fi impactate.\\
 
-Toate bunurile (\textit{assets}) create în BigchainDB aparțin unor anumiți utilizatori. Aceștia pot dovedi posesia lor și le pot transfera atât timp cât pot arată deținerea cheilor criptografice cu care au fost create sau primite structurile de date. Interacțiunea se realizează prin tranzacții specifice de tip CREATE sau de tip TRANSFER descrise în secțiunea următoare. Software-ul se asigură că tranzacțiile sunt valide atât pe partea internă a conținutului cât și la nivel înalt verificând să nu existe situații de double-spending.\\
+Toate bunurile (\textit{assets}) create în BigchainDB aparțin unor anumiți utilizatori. Aceștia pot dovedi posesia lor și le pot transfera atât timp cât pot arată deținerea cheilor criptografice cu care au fost create sau primite structurile de date. Interacțiunea se realizează prin tranzacții specifice de tip CREATE sau de tip TRANSFER descrise în secțiunea următoare. Software-ul se asigură că tranzacțiile sunt valide atât pe partea internă a conținutului cât și la nivel înalt verificând să nu existe situații de double-spending \cite{BigchainDB_Art}.\\
 
-Rată crescută de tranzacții și timpul de procesare scăzut sunt date de performanța Tendermint. Se asigură timpi de sub o secundă pentru procesarea tranzacțiilor chiar și atunci când vorbim de mii de tranzacții. Trebuie totuși menționat că un scenariu real al conține un minim de 50 de noduri distribuite în mai multe zone geografice ale globului.\\
+Rată crescută de tranzacții și timpul de procesare scăzut sunt date de performanța Tendermint. Se asigură timpi de sub o secundă pentru procesarea tranzacțiilor chiar și atunci când vorbim de mii de tranzacții. Trebuie totuși menționat că un scenariu real ar conține un minim de 50 de noduri distribuite în mai multe zone geografice ale globului \cite{BigchainDB_Art}.\\
 
-Indexarea și interogarea datelor se face asupra bazei de date MongoDB. Fiecare nod deține întregul conținutdin blockchain, de la block-uri la elementele particulare din interiorul fiecăruia, sub formă de structuri JSON și este în deplin control asupra propriei clone. Fiecare utilizator poate manevra datele în orice mod dorește și poate crea indexi sau interogări eficiente pentru diferite puncte de interes. Asupra lor se pot adăuga servicii precum apeluri HTTP API pentru a le folosi la o scară largă. De asemenea software-ul BigchainDB aduce câteva modalități predefinite prin care putem extrage informații rapid sub formă de apeluri HTTP API.\\
+Indexarea și interogarea datelor se face asupra bazei de date MongoDB. Fiecare nod deține întregul conținutdin blockchain, de la block-uri la elementele particulare din interiorul fiecăruia, sub formă de structuri JSON și este în deplin control asupra propriei clone. Fiecare utilizator poate manevra datele în orice mod dorește și poate crea indexi sau interogări eficiente pentru diferite puncte de interes. Asupra lor se pot adăuga servicii precum apeluri HTTP API pentru a le folosi la o scară largă. De asemenea software-ul BigchainDB aduce câteva modalități predefinite prin care putem extrage informații rapid sub formă de apeluri HTTP API \cite{BigchainDB_Art}.\\
 
 \clearpage
 
@@ -42,11 +42,11 @@ Indexarea și interogarea datelor se face asupra bazei de date MongoDB. Fiecare 
 
 BigchainDB pune la dispoziție o serie de utilitare numite drivere cu care putem interacționa cu întregul ecosistem \cite{BigchainDB_Docs}. Există două tipuri, unul scris în Python \cite{BigchainDB_PythonDriver} și unul în JavaScript \cite{BigchainDB_JSDriver} dar rămâne la latitudinea fiecărui utilizator să aleagă cu ce se simte confortabil pentru că ambele au aceleași capacități.\\
 
-La nivel de bază aceste drivere se folosesc de anumite funcții implementate peste componenta din Tendermint numită Application BlockChain Interface (ABCI) \cite{Tendermint_WhatIs}, componentă care permite scrierea de cod ce acționează asupra componentelor blockchain în orice limbaj de programare. BigchainDB definește funcțiile din interfață pentru a putea iniția și finaliza acțiunile de creare a unui block (BeginBlock, EndBlock, Commit) și pentru a valida și trimite tranzacțiile (CheckTx, DeliverTx)\cite{BigchainDB_Art}.\\
+La nivel de bază aceste drivere se folosesc de anumite funcții implementate peste componenta din Tendermint numită Application BlockChain Interface (ABCI) \cite{Tendermint_WhatIs}, componentă care permite scrierea de cod ce acționează asupra componentelor blockchain în orice limbaj de programare. BigchainDB definește funcțiile din interfață pentru a putea iniția și finaliza acțiunile de creare a unui block (BeginBlock, EndBlock, Commit) și pentru a valida și trimite tranzacțiile (CheckTx, DeliverTx) \cite{BigchainDB_Art}.\\
 
 Tranzacțiile sunt practic mesajele pe care dorim să le creem, mesaje ce conțin asset-urile pe care dorim să le salvăm în blockchain. \\
 
-Tranzacțiile sunt structuri de tip JSON ce respectă anumite reguli de sintaxă și conținut \cite{BigchainDB_ReadMe}. Sunt compuse din:
+Tranzacțiile sunt structuri de tip JSON ce respectă anumite reguli de sintaxă și conținut. Sunt compuse din \cite{BigchainDB_ReadMe}:
 \begin{itemize}
     \item \textbf{ID}. Este codul hash SHA-256 calculat pe baza tuturor celorlalte date din tranzacție și reprezintă identificatorul unei tranzacții.
     
@@ -85,13 +85,13 @@ Tranzacțiile sunt structuri de tip JSON ce respectă anumite reguli de sintaxă
     
     \item ID-ul tranzacției este unic la nivelul întregului blockchain. Verificare se poate face ușor prin interogarea bazei de date.
     
-    \item Câmpul "fulfillment" trebuie să fie valid pentru fiecare input. Decriptarea folosind cheia publică asociată ar trebui să returneze o informație clară.
+    \item Câmpul "fulfillment" trebuie să fie valid pentru fiecare input. Decriptarea folosind cheia publică asociată trebuie să returneze o informație clară.
     
     \item În cazul tranzacțiilor TRANSFER, un input nu se poate asocia unui output deja preluat într-o tranzacție validă anterioară și nu pot exista două input-uri în aceeași tranzacție care să se asocieze cu același output.
     
     \item În cazul tranzacțiilor TRANSFER, un input trebuie pointeze către o tranzacție care există, care este validă și în care se face trimiterea către același asset.
     
-    \item Conținutul trebuie să fie conform operațiilor care lucrează cu el (sintaxa json corectă, evitarea caracterelor speciale în zona de date).
+    \item Conținutul trebuie să fie conform operațiilor care lucrează cu el (sintaxa formatului JSON corectă, evitarea caracterelor speciale în zona de date).
 \end{itemize}
 
 \clearpage
