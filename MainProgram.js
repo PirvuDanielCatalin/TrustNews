@@ -1,6 +1,5 @@
 const fs = require("fs");
 const util = require("util");
-const prompt = require("prompt-sync")();
 
 const bigchaindb_utils = require("./BigchainDBSingleNode/Create&Transfer.js");
 const bigchaindb_check = require("./BigchainDBSingleNode/CheckTransaction.js");
@@ -88,8 +87,6 @@ async function Extract() {
   let check_request = await bigchaindb_check.CheckTransaction(
     create_transaction.id
   );
-
-  // utilities.sleep(5000);
 }
 
 function Main() {
@@ -98,7 +95,7 @@ function Main() {
 
   var menu_text =
     "\n> The extractor has started\n" +
-    "\n> Every 5 minutes a new transaction will be made on blockchain\n" +
+    "\n> Every 30 seconds a new transaction will be made on blockchain\n" +
     "\n> To stop the program press Ctrl + C\n";
 
   console.log(menu_text);
