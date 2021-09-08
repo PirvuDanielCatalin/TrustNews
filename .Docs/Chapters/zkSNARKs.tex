@@ -39,7 +39,7 @@ Alte procedee utile în ZKPs sunt schemele de comitere și criptarea homomorfic�
 
 Schema de comitere presupune stabilirea unei informații și păstrarea ei sub formă criptată până la decizia celui care o criptează de a o face publică. Valoarea ascunsă poate fi și publicată având siguranța că nu se pot extrage informații din aceasta \cite{ZKS_Crypto_Basic}. \\
 
-Criptarea homomorfică este cea care ne permite să folosim valoarea criptată mai departe în operații. Pentru ca o funcție HE(x) să poată da acest comportament trebuie să satisfacă următoarele criterii \cite{ZKS_Crypto_Basic}:
+Criptarea homomorfică este cea care ne permite să folosim valoarea criptată mai departe în operații, urmând ca decriptarea valorii finale va fi egală cu procesarea valorii inițiale. Pentru ca o funcție HE(x) să poată da acest comportament trebuie să satisfacă următoarele criterii \cite{ZKS_Crypto_Basic}:
 \begin{itemize}
     \item Este ușor de calculat HE(x) pornind de la x, dar având HE(x) este foarte dificilă găsirea lui x.
     \item Două valori diferite x și y vor rezulta în două valori HE(x) și HE(y) diferite
